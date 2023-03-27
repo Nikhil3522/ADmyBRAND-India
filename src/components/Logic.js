@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Select from "react-dropdown-select";
 import { store } from "../index";
 import { useDispatch } from "react-redux";
-import { addLogic } from "../actions";
-import { useSelector } from 'react-redux';
 
 function Logic(props){
     const dispatch = useDispatch();
@@ -48,7 +46,7 @@ function Logic(props){
     const [result, setResult] = useState(null);
     // const [allArg, setAllArg] = useState(null);
 
-    // const myStoreProperty = useSelector(state => store.getState());
+    
 
     const allArgOption = async () => {
         console.log("allArgOption");
@@ -69,12 +67,6 @@ function Logic(props){
             }])
         }
     }
-
-    // useEffect(() => {
-    //     console.log('myStoreProperty updated:', myStoreProperty);
-    
-    //     allArgOption();
-    // }, [myStoreProperty]); 
 
     useEffect(() => {
         if(selectOption){
@@ -97,18 +89,17 @@ function Logic(props){
     }, [result]);
 
     function handleChange(value) {
-        console.log("****************")
         if(value == "True" || value == "False" || value == "and" || value == "or" || value == "undefined"){
-            console.log("****************")
-            props.onChange(value);
-            dispatch(addLogic(value));
+            // props.onChange(value);
+            props.updateAllLogicStore(props.index, value)
+            // dispatch(addLogic(value));
         }
         
     }
 
     return (
-        <div className="containerAdd">
-            <div className="w-28">
+        <div className="containerAdd my-1">
+            <div className="w-32">
                 <Select 
                     options={optionData} 
                     labelField="name" 
@@ -132,7 +123,6 @@ function Logic(props){
             >
                 X
             </div>
-
         </div>
         
     )

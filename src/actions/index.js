@@ -1,5 +1,6 @@
 export const ADD_ARG = 'ADD_ARG'
 export const ADD_LOGIC = 'ADD_LOGIC'
+export const STORE_VALUE = 'STORE_VALUE'
 
 export function addArg(argName, ArgValue) {
     return {
@@ -9,9 +10,16 @@ export function addArg(argName, ArgValue) {
     }
 }
 
-export function addLogic(logicName){
+export function addLogic(logicIndex, logicName){
     return {
         type: ADD_LOGIC,
+        logicIndex,
         logicName
+    }
+}
+
+export function storeValue(){
+    return{
+        type: STORE_VALUE
     }
 }

@@ -1,19 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logic from "./Logic";
+import { store } from "../index";
+import { useDispatch } from "react-redux";
+import { addLogic, storeValue } from "../actions";
+import { useSelector } from 'react-redux';
 
 function AllLogic(props){
+    const dispatch = useDispatch();
     const [totalLogicComp, setTotalLogicCom] = useState(1);
     const increaseComp = () => {
         setTotalLogicCom(totalLogicComp + 2);
     }
+    const updateAllLogicStore = (index, value) => {
+        dispatch(addLogic(index, value));
+    }
+  
     return(
         <div>
-            <div>
+            <div className="m-[auto] w-44 my-2">
                 {Array(totalLogicComp).fill().map((_, index) => (
                     <Logic
                         key={index} 
-                        onChange={props.onChange}
+                        index={index}
+                        // onChange={props.onChange}
                         onClickAndOr={increaseComp}
+                        updateAllLogicStore={updateAllLogicStore}
                     />
                 ))
                 }

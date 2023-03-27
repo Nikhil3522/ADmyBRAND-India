@@ -1,6 +1,8 @@
+import { store } from '..';
 import { 
     ADD_ARG,
-    ADD_LOGIC
+    ADD_LOGIC,
+    STORE_VALUE
 } from '../actions';
 
 const getLocalData = () => {
@@ -47,16 +49,28 @@ console.log("Reducer", state);
         case ADD_LOGIC:
 
             var tempArr;
-            console.log("logic", state.logicArr)
-            state.logicArr != null ?
-            tempArr = [...state.logicArr, action.logicName]:
-            tempArr = [action.logicName]
+            console.log("logic", action.logicIndex)
+            // state.logicArr != null ?
+            state.logicArr[action.logicIndex] = action.logicName
+            // tempArr = [...state.logicArr, action.logicName]:
+            // state.logicArr[0] = action.logicName;
+
+            // console.log("state.logicArr.length", state.logicArr.length)
+            // var size2 = (state.logicArr===null ? 0 : 0);
+            // for(let i=0; i< size2; i++){
+            //     if(i == action.logicIndex){
+            //         state.logicArr[i] = action.logicName;
+            //         return state
+            //     }
+            // }
             
 
             return {
                 ...state,
-                logicArr: [...tempArr]
+                // logicArr: [...tempArr]
             }
+        case STORE_VALUE:
+            return store;
         default:
             return state;
     }
