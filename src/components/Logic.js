@@ -44,9 +44,7 @@ function Logic(props){
     const [optionData, setOptionData] = useState(options);
     const [selectOption, setSelectOption] = useState(null);
     const [result, setResult] = useState(null);
-    // const [allArg, setAllArg] = useState(null);
 
-    
 
     const allArgOption = async () => {
         console.log("allArgOption");
@@ -90,9 +88,7 @@ function Logic(props){
 
     function handleChange(name, value) {
         if(value == "True" || value == "False" || value == "and" || value == "or" || value == "undefined"){
-            // props.onChange(value);
-            props.updateAllLogicStore(props.index, name, value)
-            // dispatch(addLogic(value));
+            props.updateAllLogicStore(props.index, name, value);
         }
         
     }

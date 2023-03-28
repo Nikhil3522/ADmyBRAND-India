@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import Logic from "./Logic";
-import { store } from "../index";
 import { useDispatch } from "react-redux";
-import { addLogic, storeValue } from "../actions";
-import { useSelector } from 'react-redux';
+import { addLogic} from "../actions";
 
 function AllLogic(props){
     const dispatch = useDispatch();
@@ -22,7 +20,6 @@ function AllLogic(props){
                     <Logic
                         key={index} 
                         index={index}
-                        // onChange={props.onChange}
                         onClickAndOr={increaseComp}
                         updateAllLogicStore={updateAllLogicStore}
                     />

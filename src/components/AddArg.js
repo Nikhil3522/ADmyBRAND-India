@@ -23,7 +23,6 @@ function AddArg(){
     });
 
     useEffect(() =>{
-      // console.log("value", inputValue)
       dispatch(addLogic(-1, inputValue.argName,  inputValue.value))
       
     }, [inputValue])

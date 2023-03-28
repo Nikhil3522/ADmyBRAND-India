@@ -19,7 +19,6 @@ allArg: {
     arg: getLocalData()
 },
 logicArr: []
-// habitTracker: [],
 }
 export default  function arg (state = initialState, action){
 console.log("Reducer", state);
@@ -48,7 +47,6 @@ console.log("Reducer", state);
 
         case ADD_LOGIC:
 
-            // console.log("logic", action.logicIndex)
             if(action.logicIndex == -1){
                 const size2 = (state.logicArr===null ? 0 : state.logicArr.length);
                 for(let i=0; i< size2; i++){
@@ -59,38 +57,16 @@ console.log("Reducer", state);
                         }
                     }
                 }
-
                 return {
                     ...state,
                 }
             }
             
-
-            // var tempArr;
-            // state.logicArr != null ?
-            // tempArr = [...state.logicArr, [action.argName, action.logicName]]:
-            // tempArr = [[action.argName, action.logicName]]
-
-            // var tempArr;
-            // state.logicArr != null ?
             var temparr = [action.argName, action.logicName];
             state.logicArr[action.logicIndex] = temparr;
-            // tempArr = [...state.logicArr, action.logicName]:
-            // state.logicArr[0] = action.logicName;
-
-            // console.log("state.logicArr.length", state.logicArr.length)
-            // var size2 = (state.logicArr===null ? 0 : 0);
-            // for(let i=0; i< size2; i++){
-            //     if(i == action.logicIndex){
-            //         state.logicArr[i] = action.logicName;
-            //         return state
-            //     }
-            // }
-            
 
             return {
                 ...state,
-                // logicArr: [...tempArr]
             }
         case STORE_VALUE:
             return store;

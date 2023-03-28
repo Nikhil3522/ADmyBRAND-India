@@ -9,8 +9,6 @@ function App() {
   const [totalArg, setTotalArg] = useState(1);
   const [result, setResult] = useState('undefined');
 
-
-  // const myStoreProperty = store.getState();
   const myStoreProperty = useSelector(state => store.getState());
 
   function applyAndLogic(arr) {
@@ -69,10 +67,6 @@ function App() {
     }
   }
 
-  // useEffect(() =>{
-  //   console.log("New result", result)
-  //   setResult(result);
-  // }, [myStoreProperty, result])
   useEffect(() => {
     console.log('updated22:', myStoreProperty);
     var myArray = myStoreProperty.logicArr;
