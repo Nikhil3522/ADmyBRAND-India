@@ -10,10 +10,11 @@ export function addArg(argName, ArgValue) {
     }
 }
 
-export function addLogic(logicIndex, logicName){
+export function addLogic(logicIndex, argName, logicName){
     return {
         type: ADD_LOGIC,
         logicIndex,
+        argName,
         logicName
     }
 }

@@ -48,10 +48,33 @@ console.log("Reducer", state);
 
         case ADD_LOGIC:
 
-            var tempArr;
-            console.log("logic", action.logicIndex)
+            // console.log("logic", action.logicIndex)
+            if(action.logicIndex == -1){
+                const size2 = (state.logicArr===null ? 0 : state.logicArr.length);
+                for(let i=0; i< size2; i++){
+                    if(action.argName == state.logicArr[i][0]){
+                        state.logicArr[i][1] = action.logicName
+                        return {
+                            ...state,
+                        }
+                    }
+                }
+
+                return {
+                    ...state,
+                }
+            }
+            
+
+            // var tempArr;
             // state.logicArr != null ?
-            state.logicArr[action.logicIndex] = action.logicName
+            // tempArr = [...state.logicArr, [action.argName, action.logicName]]:
+            // tempArr = [[action.argName, action.logicName]]
+
+            // var tempArr;
+            // state.logicArr != null ?
+            var temparr = [action.argName, action.logicName];
+            state.logicArr[action.logicIndex] = temparr;
             // tempArr = [...state.logicArr, action.logicName]:
             // state.logicArr[0] = action.logicName;
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Select from "react-dropdown-select";
 import { useDispatch } from "react-redux";
 import { addArg } from "../actions";
+import { addLogic} from "../actions";
 
 function AddArg(){
   const dispatch = useDispatch();
@@ -22,7 +23,9 @@ function AddArg(){
     });
 
     useEffect(() =>{
-      console.log("value", inputValue)
+      // console.log("value", inputValue)
+      dispatch(addLogic(-1, inputValue.argName,  inputValue.value))
+      
     }, [inputValue])
     return(
         <div>
@@ -47,6 +50,7 @@ function AddArg(){
                         value: values[0].name
                       }),
                       dispatch(addArg(inputValue.argName, values[0].name)))
+                      
                       
                     } 
                   />

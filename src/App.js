@@ -9,6 +9,7 @@ function App() {
   const [totalArg, setTotalArg] = useState(1);
   const [result, setResult] = useState('undefined');
 
+
   // const myStoreProperty = store.getState();
   const myStoreProperty = useSelector(state => store.getState());
 
@@ -77,9 +78,12 @@ function App() {
     var myArray = myStoreProperty.logicArr;
 
     var temArr = myArray.slice();
+    const temArr2 = temArr.map(subArr => subArr[1]);
 
-    temArr.reverse();
-     calResult(temArr); 
+    console.log("arrrrrr", temArr2);
+
+    temArr2.reverse();
+     calResult(temArr2); 
   }, [myStoreProperty]);
   return (
     <div className="App">

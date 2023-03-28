@@ -11,8 +11,8 @@ function AllLogic(props){
     const increaseComp = () => {
         setTotalLogicCom(totalLogicComp + 2);
     }
-    const updateAllLogicStore = (index, value) => {
-        dispatch(addLogic(index, value));
+    const updateAllLogicStore = (index, name,  value) => {
+        dispatch(addLogic(index, name,  value));
     }
   
     return(

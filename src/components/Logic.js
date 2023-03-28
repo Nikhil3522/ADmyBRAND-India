@@ -88,10 +88,10 @@ function Logic(props){
         handleChange();
     }, [result]);
 
-    function handleChange(value) {
+    function handleChange(name, value) {
         if(value == "True" || value == "False" || value == "and" || value == "or" || value == "undefined"){
             // props.onChange(value);
-            props.updateAllLogicStore(props.index, value)
+            props.updateAllLogicStore(props.index, name, value)
             // dispatch(addLogic(value));
         }
         
@@ -108,7 +108,7 @@ function Logic(props){
                     onChange={(values) => {
                         console.log("values", values)
                         setSelectOption(values)
-                        handleChange(values[0].value)
+                        handleChange(values[0].name, values[0].value)
                         }
                     } 
                 />
