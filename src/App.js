@@ -68,10 +68,10 @@ function App() {
     }
   }
 
-  useEffect(() =>{
-    console.log("New result", result)
-    setResult(result);
-  }, [myStoreProperty, result])
+  // useEffect(() =>{
+  //   console.log("New result", result)
+  //   setResult(result);
+  // }, [myStoreProperty, result])
   useEffect(() => {
     console.log('updated22:', myStoreProperty);
     var myArray = myStoreProperty.logicArr;
