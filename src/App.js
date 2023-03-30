@@ -93,7 +93,9 @@ function App() {
 
         <AllLogic />
 
-        <h1>Result: {result}</h1>
+        <div className='resultBox  w-44 p-5 m-[auto] mt-5 rounded-lg text-[16px] text-white bg-gradient-to-r from-sky-500 to-indigo-500'>
+          <h1>Result: <span className='font-bold'>{result}</span></h1>
+        </div>
     </div>
   );
 }
