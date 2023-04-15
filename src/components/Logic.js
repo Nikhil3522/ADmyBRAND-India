@@ -44,6 +44,8 @@ function Logic(props){
     const [optionData, setOptionData] = useState(options);
     const [selectOption, setSelectOption] = useState(null);
     const [result, setResult] = useState(null);
+    // IncOp state is responsible for increase the operator only once time.
+    const [IncOp, setIncOp] = useState(true);
 
 
     const allArgOption = async () => {
@@ -76,7 +78,10 @@ function Logic(props){
             }else if(selectOption[0].name === "argument"){
                 allArgOption();
             }else if(selectOption[0].name === "and" || selectOption[0].name === "or"  ){
-                props.onClickAndOr();
+                if(IncOp){
+                    props.onClickAndOr();
+                    setIncOp(false);
+                }
             }
         }
         
